@@ -822,6 +822,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BirdMovement
   player: {fileID: 0}
   flap: {fileID: 8300000, guid: fa5988d03da59a044bd9438da50f2020, type: 3}
+  movementSpeed: 4
+  rotationSpeed: 0.5
   gravity: 3
   jump: 6
   deathBarrier: 0

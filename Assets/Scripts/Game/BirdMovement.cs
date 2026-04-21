@@ -5,24 +5,28 @@ using UnityEngine.InputSystem.XR;
 public class BirdMovement : MonoBehaviour
 {
     public Rigidbody player;
-
     public AudioClip flap;
 
-    private float
-        movementSpeed = 1f, // Movement Speed
-
-        rotationSpeed = 0.5f, // Amount to Rotate Player by
-        playerRotation = 0; // Current Rotation
-
     public float
+        // Movement
+        movementSpeed, // Movement Speed
+
+        // Rotation
+        rotationSpeed, // Amount to Rotate Player by
+
+        // Jump
         gravity, // Gravity Strength
-        jump, // Jump Strength
+        jump, // Strength
+
+        // Other
         deathBarrier; // Game Over Y Position
+
+    private float
+        playerRotation = 0; // Current Rotation
 
     public void Awake()
     {
         // Initialize Player
-
         player = GetComponent<Rigidbody>();
     }
 
@@ -38,7 +42,7 @@ public class BirdMovement : MonoBehaviour
         playerRotation += y * rotationSpeed;
 
         // Apply Move
-        player.MovePosition(player.position + transform.forward * x * movementSpeed * Time.deltaTime);
+        player.MovePosition(player.position + transform.forward * movementSpeed * Time.deltaTime);
 
         // Rotate Player
         player.rotation = Quaternion.Euler(0, playerRotation, 0);
