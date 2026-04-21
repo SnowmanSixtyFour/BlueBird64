@@ -3,13 +3,16 @@ using UnityEngine.InputSystem;
 
 public class BirdMovement : MonoBehaviour
 {
-    public CharacterController controller;
+    public CharacterController player;
 
-    public float
-        movementSpeed = 0.5f, // Movement Speed of Player
+    private float
+        movementSpeed = 1f, // Movement Speed of Player
 
-        cameraRotationSpeed = 0.5f, // Amount to Rotate Player by
-        yRotation = 0; // Current Rotation of Player
+        rotationSpeed = 0.5f, // Amount to Rotate Player by
+        playerRotation = 0, // Current Rotation of Player
+
+        // New Position
+        zPos = 0f;
 
     // --- METHODS ---
 
@@ -19,12 +22,14 @@ public class BirdMovement : MonoBehaviour
         float y = Input.GetAxis("Horizontal");
 
         // Calculate Movement
-        yRotation += y * cameraRotationSpeed;
+        playerRotation += y * rotationSpeed;
+
+        zPos = (1 * movementSpeed * Time.deltaTime);
 
         // Apply Move
-        controller.transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
+        player.transform.Translate(0, 0, zPos);
 
         // Rotate Player
-        transform.localRotation = Quaternion.Euler(0, yRotation, 0);
+        transform.localRotation = Quaternion.Euler(0, playerRotation, 0);
     }
 }
