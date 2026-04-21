@@ -1,35 +1,66 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 
 public class BirdMovement : MonoBehaviour
 {
-    public CharacterController player;
+    public Rigidbody player;
+
+    public AudioClip flap;
 
     private float
-        movementSpeed = 1f, // Movement Speed of Player
+        movementSpeed = 1f, // Movement Speed
 
         rotationSpeed = 0.5f, // Amount to Rotate Player by
-        playerRotation = 0, // Current Rotation of Player
+        playerRotation = 0; // Current Rotation
 
-        // New Position
-        zPos = 0f;
+    public float
+        gravity, // Gravity Strength
+        jump, // Jump Strength
+        deathBarrier; // Game Over Y Position
 
-    // --- METHODS ---
+    public void Awake()
+    {
+        // Initialize Player
+
+        player = GetComponent<Rigidbody>();
+    }
 
     public void Update()
     {
+        // --- Movement ---
+
         // Get Input
+        float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Horizontal");
 
         // Calculate Movement
         playerRotation += y * rotationSpeed;
 
-        zPos = (1 * movementSpeed * Time.deltaTime);
-
         // Apply Move
-        player.transform.Translate(0, 0, zPos);
+        player.MovePosition(player.position + transform.forward * x * movementSpeed * Time.deltaTime);
 
         // Rotate Player
-        transform.localRotation = Quaternion.Euler(0, playerRotation, 0);
+        player.rotation = Quaternion.Euler(0, playerRotation, 0);
+
+        // Jump
+        if (Input.GetButtonDown("Jump"))
+        {
+            // Add Jump Force
+            player.AddForce(Vector3.up * jump, ForceMode.Impulse);
+
+            // Play SFX
+            AudioSource.PlayClipAtPoint(flap, transform.position);
+        }
+
+        // Gravity
+        player.AddForce(Vector3.down * gravity, ForceMode.Force);
+
+        // Restart Game
+        if (player.position.y < 0)
+        {
+            // Go back to Title
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
+        }
     }
 }
