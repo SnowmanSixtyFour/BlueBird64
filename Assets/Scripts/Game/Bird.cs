@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.XR;
 
 public class BirdMovement : MonoBehaviour
 {
@@ -8,6 +6,9 @@ public class BirdMovement : MonoBehaviour
     public AudioClip flap;
 
     public float
+        // Game Properties
+        score, // Score
+
         // Movement
         movementSpeed, // Movement Speed
 
@@ -28,6 +29,7 @@ public class BirdMovement : MonoBehaviour
     {
         // Initialize Player
         player = GetComponent<Rigidbody>();
+        player.detectCollisions = true;
     }
 
     public void Update()
@@ -63,8 +65,31 @@ public class BirdMovement : MonoBehaviour
         // Restart Game
         if (player.position.y < 0)
         {
-            // Go back to Title
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
+            GameOver();
         }
+    }
+
+    // Collisions
+    public void OnCollisionEnter(Collision collision)
+    {
+        // If Player Passes through Pipes
+        if (collision.gameObject.tag == "PipeInteract")
+        {
+            // Add to Score
+            score++;
+        }
+
+        if (collision.gameObject.tag == "Pipe")
+        {
+            // Game Over
+            GameOver();
+        }
+    }
+
+    // On Game Over
+    private void GameOver()
+    {
+        // Go back to Title
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
     }
 }
