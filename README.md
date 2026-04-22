@@ -8,7 +8,7 @@
 ### A game made with Unity for my .NET assignment in college in just 2 days.
 Take wing with a blue bird in a fully 3D environment. Jump through pipes and try to get the highest score.
 
-To learn more about the assignment, read the [Submission Report](https://github.com/SnowmanSixtyFour/BlueBird64/blob/college-submission/docs/report.pdf).
+To learn more about the assignment, read the [Submission Report](https://github.com/SnowmanSixtyFour/BlueBird64/blob/college/docs/report.pdf).
 ## Credits
 [Snowman64](https://github.com/SnowmanSixtyFour) | <b>Creator</b> & Lead Programmer
 
