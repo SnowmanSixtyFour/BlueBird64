@@ -8,6 +8,7 @@ A game made with Unity for my .NET assignment in college in just 2 days.
 To learn more about the assignment, read the [Submission Report](https://github.com/SnowmanSixtyFour/BlueBird64/blob/college-submission/docs/report.pdf).
 ## Credits
 [Snowman64](https://github.com/SnowmanSixtyFour) | <b>Creator</b> & Lead Programmer
+
 [River347](https://river347.bandcamp.com/) | Music
 ### Freesound.org Sounds
 domBanks - [Dragon Wing Flap.wav](https://freesound.org/people/domBanks/sounds/362405/)
