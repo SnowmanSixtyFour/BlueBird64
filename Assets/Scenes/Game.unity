@@ -184955,8 +184955,8 @@ MonoBehaviour:
   score: 0
   movementSpeed: 4
   rotationSpeed: 0.5
-  gravity: 9
-  jump: 11
+  gravity: 2
+  jump: 10
   deathBarrier: 0
 --- !u!1 &1562430613
 GameObject:
