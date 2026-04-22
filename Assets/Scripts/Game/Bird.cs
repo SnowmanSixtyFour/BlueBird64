@@ -1,6 +1,8 @@
+using System.IO.Pipes;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class BirdMovement : MonoBehaviour
+public class Bird : MonoBehaviour
 {
     public Rigidbody player;
     public AudioClip flap;
@@ -69,19 +71,23 @@ public class BirdMovement : MonoBehaviour
         }
     }
 
-    // Collisions
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter (Collision collision)
     {
-        // If Player Passes through Pipes
-        if (collision.gameObject.tag == "PipeInteract")
+        // Increase Score
+        if (collision.collider.name == "ScoreIncreaser")
         {
-            // Add to Score
             score++;
+
+            // Disable Score Increaser (by setting to trigger)
+            collision.collider.isTrigger = true;
+
+            // Make Score Increaser Visible
+            collision.gameObject.GetComponent<MeshRenderer>().enabled = true; // Enable Mesh Renderer
         }
 
-        if (collision.gameObject.tag == "Pipe")
+        // Game Over
+        if (collision.collider.name == "TopHalf" || collision.collider.name == "BottomHalf")
         {
-            // Game Over
             GameOver();
         }
     }

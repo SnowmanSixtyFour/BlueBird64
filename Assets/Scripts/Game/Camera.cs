@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
 
-public class CameraMovement : MonoBehaviour
+public class Camera : MonoBehaviour
 {
     public Transform
         target; // Pivot Point
