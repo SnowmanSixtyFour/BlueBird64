@@ -1,9 +1,12 @@
 # Blue Bird 64
+<b>PLAY THE GAME [ONLINE](https://snowman64.itch.io/bluebird64)!</b>
+
 <a href="https://opensource.org/license/mit">
   <img src="https://img.shields.io/badge/License-MIT-blue.svg" width="100" alt="MIT License">
 </a>
 
-A game made with Unity for my .NET assignment in college in just 2 days.
+### A game made with Unity for my .NET assignment in college in just 2 days.
+Take wing with a blue bird in a fully 3D environment. Jump through pipes and try to get the highest score.
 
 To learn more about the assignment, read the [Submission Report](https://github.com/SnowmanSixtyFour/BlueBird64/blob/college-submission/docs/report.pdf).
 ## Credits
