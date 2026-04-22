@@ -24,6 +24,18 @@ public class Bird : MonoBehaviour
         // Other
         deathBarrier; // Game Over Y Position
 
+    /*
+     * Bird Speeds
+     * 
+     * PC:
+     * Gravity - 2
+     * Jump - 10
+     * 
+     * WEB:
+     * Gravity - 8
+     * Jump - 11
+     */
+
     private float
         playerRotation = 0; // Current Rotation
 
