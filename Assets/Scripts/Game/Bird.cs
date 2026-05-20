@@ -83,7 +83,7 @@ public class Bird : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter (Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         // Increase Score
         if (collision.collider.name == "ScoreIncreaser")
